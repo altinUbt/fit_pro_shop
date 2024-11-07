@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>SignIn</title>
+  </head>
+  <body>
+    <form method="POST" action="signin.html">
+      <section>
+        <div class="login">
+          <h1 class="input-signIn">SignIn</h1>
+          <p>Create account</p>
+          <div class="input-container">
+            <img src="assets/images/emailIcon.png" width="24px" height="24px" />
+            <input type="email" placeholder="Email" id="email" required />
+          </div>
+          <div class="input-container">
+            <img src="assets/images/userIcon.png" width="24px" height="24px" />
+            <input type="text" placeholder="Username" id="username" required />
+          </div>
+          <div class="input-container">
+            <img
+              src="assets/images/passwordIcon.png"
+              width="24px"
+              height="24px"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              required
+            />
+          </div>
+          <div>
+            <button class="button">Sign In</button>
+          </div>
+          <p>Already have a account <a href="login.html">Login</a></p>
+        </div>
+      </section>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
