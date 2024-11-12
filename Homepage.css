@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url(assets/images/protein1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main{
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    height: 109vh;
+}
+.navbar{
+    display: flex;
+    height: 75px;
+    padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    
+}
+
+.logo{
+    color: white;
+    font-size: 35px;
+    font-family: Arial;
+    padding-left: 20px;
+    float: left;
+    padding-top: 10px;
+
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+ul li{
+    list-style: none;
+    margin-left: 62px;
+    font-size: 14px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: white;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f6f6;
+    padding: 8px 20px;
+    border-radius: 28px;
+    margin-left: 100px;
+}
+.search-input{
+    font-size: 16px;
+    color: #333333;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 250px;
+    padding: 8px;
+}
+.search img{
+    width: 24px;
+    height: 24px;
+}
