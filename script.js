@@ -39,7 +39,7 @@ btn.addEventListener("click", function (event) {
     password.length >= 8
   ) {
     console.log("clicked");
-    // window.location.href = "";
+    // window.location.href = "Homepage.html";
 
     if (rememberMeCheck.checked) {
       saveUserData(email, password);
