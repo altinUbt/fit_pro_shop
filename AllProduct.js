@@ -9,6 +9,7 @@ const closeModalBtn = document.querySelector(".close");
 const buyButton = document.querySelector(".buyButton");
 
 buyNowBtn.forEach(function (btn) {
+  console.log(btn);
   btn.addEventListener("click", function (e) {
     const productCard = e.target.closest(".product-card");
     const title = productCard.querySelector("h3").textContent;
