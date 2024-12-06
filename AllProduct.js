@@ -7,6 +7,11 @@ const modalImage = document.getElementById("modal-image");
 const modalDescription = document.getElementById("modal-description");
 const closeModalBtn = document.querySelector(".close");
 const buyButton = document.querySelector(".buyButton");
+const backBtn = document.querySelector(".back-btn");
+
+backBtn.addEventListener("click", function () {
+  window.location.href = "HomePage.html";
+});
 
 buyNowBtn.forEach(function (btn) {
   console.log(btn);
