@@ -19,9 +19,9 @@ header {
 }
 
 .back-btn {
-  position: absolute; /* Pozicion absolut për të lëvizur lirisht */
-  top: 20px; /* Hapësirë nga lart */
-  left: 110px; /* Hapësirë nga e majta */
+  position: absolute;
+  top: 20px;
+  left: 110px;
 }
 
 .back {

@@ -3,53 +3,75 @@
 const btn = document.querySelector(".button");
 const rememberMeCheck = document.querySelector("#rememberMe");
 
-// const saveData =
 function saveUserData(email, password) {
   localStorage.setItem("userEmail", email);
   localStorage.setItem("userPassword", password);
+}
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function isValidPassword(password) {
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
+  return passwordRegex.test(password);
 }
 
 window.addEventListener("load", function () {
   const savedEmail = localStorage.getItem("userEmail");
   const savedPassword = localStorage.getItem("userPassword");
 
-  if (rememberMeCheck.checked) {
+  if (savedEmail && savedPassword) {
     document.getElementById("email").value = savedEmail;
     document.getElementById("password").value = savedPassword;
     rememberMeCheck.checked = true;
-  }
-  if (savedEmail && savedPassword) {
-    document.getElementById("email").value = "";
-    document.getElementById("password").value = "";
   }
 });
 
 const account = {
   email: "ah70313@gmail.com",
-  password: "12345678",
+  password: "12345678Aa",
 };
 
 btn.addEventListener("click", function (event) {
   event.preventDefault();
+
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  if (
-    email === account.email &&
-    password === account.password &&
-    password.length >= 8
-  ) {
-    console.log("clicked");
-    window.location.href = "Homepage.html";
+  const emailError = document.getElementById("emailError");
+  const passwordError = document.getElementById("passwordError");
 
-    if (rememberMeCheck.checked) {
-      saveUserData(email, password);
-    } else {
-      localStorage.removeItem("userEmail");
-      localStorage.removeItem("userPassword");
-    }
+  let isValid = true;
+
+  if (!isValidEmail(email)) {
+    emailError.textContent = "Invalid Email";
+    isValid = false;
   } else {
-    console.log("Try again");
+    emailError.textContent = "";
   }
-  document.getElementById("email").value = "";
-  document.getElementById("password").value = "";
+
+  if (!isValidPassword(password)) {
+    passwordError.textContent =
+      "Password must be 8+ chars, with a capital letter, lowercase, and number.";
+    isValid = false;
+  } else {
+    passwordError.textContent = "";
+  }
+
+  if (isValid) {
+    if (email === account.email && password === account.password) {
+      console.log("clicked");
+      window.location.href = "Homepage.html";
+
+      if (rememberMeCheck.checked) {
+        saveUserData(email, password);
+      } else {
+        localStorage.removeItem("userEmail");
+        localStorage.removeItem("userPassword");
+      }
+    } else {
+      alert("Email-i ose fjalëkalimi është i gabuar.");
+    }
+  }
 });
