@@ -1,33 +1,43 @@
 <?php
 
 // include_once 'UserDBHandler.php';
-include_once 'DBUser.php';
+require_once 'DBUser.php';
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+class LoginControll
+{
+    private $errorMessage;
 
-if (isset($_POST['loginBtn'])) {
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
-    if (empty($email) || empty($password)) {
-        echo 'Fill the fields';
-    } else {
-        $email = $_POST['email'];
-        $password = $_POST["password"];
-
-        $dbUser = new DBUser();
-        $user = $dbUser->getUserEmailPass($email, $password);
-
-        if (empty($user)) {
-            echo "Incorrect credidentials";
-        } else {
-            $_SESSION['useremail'] = $email;
-            header("Location:index.php");
-            exit;
-        }
+    public function __construct()
+    {
+        $this->errorMessage;
     }
 
-}
+    public function handleLogin()
+    {
+        if (isset($_POST['loginBtn'])) {
+            $email = isset($_POST['email']) ? $_POST['email'] : '';
+            $password = isset($_POST['password']) ? $_POST['password'] : '';
 
+            if (empty($email) || empty($password)) {
+                $this->errorMessage = "Fill The Fields";
+                return;
+            }
+            $userDBHandler = new DBUser();
+            $user = $userDBHandler->getUserEmailPass($email, $password);
+
+            if (empty($user)) {
+                $this->errorMessage = "Email or Password invalid";
+            } else {
+                session_start();
+                $_SESSION['useremail'] = $email;
+                header("Location: index.php");
+                exit;
+            }
+        }
+    }
+    public function getErrorMessage()
+    {
+        return $this->errorMessage;
+    }
+}
 ?>

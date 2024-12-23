@@ -23,8 +23,7 @@ class DBUser
         $sql = "INSERT INTO users (id,username,email,password) VALUES
         ('$id','$userName','$email','$password')";
         if (mysqli_query($conn, $sql)) {
-            echo 'Query executed succesfuly';
-            header('location:login.php');
+            // echo 'Query executed succesfuly';
         } else {
             echo 'This is an Error' . mysqli_error($conn);
         }
@@ -40,7 +39,6 @@ class DBUser
 
         if ($statement = $conn->query($sql)) {
             $result = $statement->fetch_row();
-            echo 'Query executed succesfuly';
             return $result;
         } else {
             return null;

@@ -1,8 +1,19 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
 
-include_once 'signinControll.php'
+if (isset($_SESSION['useremail'])) {
+  header('Location:index.php');
+  exit;
+}
+require_once 'signinControll.php';
 
-  ?>
+$signinControll = new SignInControll();
+$signinControll->handleSignin();
+$errorMsg = $signinControll->getErrorMessage();
+$succedMsg = $signinControll->getSuccedMessage();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +31,13 @@ include_once 'signinControll.php'
     <div class="login">
       <h1 class="input-signIn">SignIn</h1>
       <p>Create account</p>
-      <form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
+      <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+        <div style="color: red;">
+          <?= htmlspecialchars($errorMsg ? $errorMsg : '') ?>
+        </div>
+        <div style="color: green;">
+          <?= htmlspecialchars($succedMsg ? $succedMsg : '') ?>
+        </div>
         <div class="input-container">
           <div class="icon-container">
             <img src="assets/images/userIcon.png" width="24px" height="24px" />

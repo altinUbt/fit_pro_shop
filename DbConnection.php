@@ -13,7 +13,6 @@ class DBConnection
         if (!$conn = mysqli_connect($this->server, $this->username, $this->password, $this->database)) {
             return null;
         } else {
-            echo 'Connected';
             return $conn;
         }
     }
