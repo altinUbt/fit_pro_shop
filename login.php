@@ -34,15 +34,15 @@ require_once 'LoginControll.php';
             <img src="assets/images/emailIcon.png" width="24px" height="24px" />
           </div>
           <input type="email" placeholder="Email" id="email" name="email" />
-          <span id="emailError" class="error"></span>
         </div>
+        <span id="emailError" class="error"></span>
         <div class="input-container">
           <div class="icon-container">
             <img src="assets/images/passwordIcon.png" width="24px" height="24px" />
           </div>
           <input type="password" placeholder="Password" id="password" name="password" />
-          <span id="passwordError" class="error"></span>
         </div>
+        <span id="passwordError" class="error"></span>
         <div>
           <input type="submit" class="signBtn" value="Login" name="loginBtn" />
         </div>

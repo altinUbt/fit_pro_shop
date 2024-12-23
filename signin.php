@@ -22,19 +22,26 @@ include_once 'signinControll.php'
       <p>Create account</p>
       <form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
         <div class="input-container">
-          <img src="assets/images/userIcon.png" width="24px" height="24px" />
+          <div class="icon-container">
+            <img src="assets/images/userIcon.png" width="24px" height="24px" />
+          </div>
           <input type="text" placeholder="Username" id="username" name="username" />
         </div>
         <div class="input-container">
-          <img src="assets/images/emailIcon.png" width="24px" height="24px" />
+          <div class="icon-container">
+            <img src="assets/images/emailIcon.png" width="24px" height="24px" />
+          </div>
           <input type="email" placeholder="Email" id="email" name="email" />
-          <span id="emailError" class="error"></span>
         </div>
+        <span id="emailError" class="error"></span>
         <div class="input-container">
-          <img src="assets/images/passwordIcon.png" width="24px" height="24px" />
+          <div class="icon-container">
+
+            <img src="assets/images/passwordIcon.png" width="24px" height="24px" />
+          </div>
           <input type="password" placeholder="Password" id="password" name="password" />
-          <span id="passwordError" class="error"></span>
         </div>
+        <span id="passwordError" class="error"></span>
         <div>
           <!-- <button class="button">Sign In</button> -->
           <input class="signBtn" type="submit" value="SignUp" name="signinBtn">
