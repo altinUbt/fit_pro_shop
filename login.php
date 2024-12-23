@@ -4,12 +4,16 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
-if (isset($_SESSION['email'])) {
+if (isset($_SESSION['useremail'])) {
   header('Location:index.php');
   exit;
 }
 
 require_once 'LoginControll.php';
+
+$loginControll = new LoginControll();
+$loginControll->handleLogin();
+$errorMsg = $loginControll->getErrorMessage();
 
 ?>
 
@@ -25,10 +29,13 @@ require_once 'LoginControll.php';
 </head>
 
 <body>
-  <form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
+  <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>">
     <section>
       <div class="login">
         <h1 class="input-login">Log In</h1>
+        <div style="color: red;">
+          <?= htmlspecialchars($errorMsg ? $errorMsg : "") ?>
+        </div>
         <div class="input-container">
           <div class="icon-container">
             <img src="assets/images/emailIcon.png" width="24px" height="24px" />
