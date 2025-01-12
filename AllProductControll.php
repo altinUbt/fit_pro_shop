@@ -29,7 +29,6 @@ class ProductControll
             $product = $productDBHandler->getProductById($productId);
 
             if ($product) {
-                // $_SESSION['cart'][] = $product; //Pas shtimit te cart.php page
                 $this->succedMessage = "Product purchased successfuly";
             } else {
                 $this->errorMessage = "Product not found";
