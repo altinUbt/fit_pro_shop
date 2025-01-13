@@ -1,4 +1,4 @@
-*{
+ *{
     margin: 0;
     padding: 0;
 }
@@ -20,9 +20,7 @@ body{
     height: 75px;
     padding: 0 20px;
     background-color: rgba(0, 0, 0, 0.6);
-    
 }
-
 .logo{
     color: white;
     font-size: 35px;
