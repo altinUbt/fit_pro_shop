@@ -6,13 +6,16 @@ class UserEntity
     private $username;
     private $email;
     private $password;
+    private $role;
 
-    function __construct($id, $username, $email, $password)
+
+    function __construct($id, $username, $email, $password, $role)
     {
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
         $this->password = $password;
+        $this->role = $role;
     }
 
     function getId()
@@ -31,6 +34,11 @@ class UserEntity
     {
         return $this->password;
     }
+    function getRole()
+    {
+        return $this->role;
+    }
+
 
     function __tostring()
     {
