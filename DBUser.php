@@ -20,8 +20,8 @@ class DBUser
         $email = $user->getEmail();
         $password = $user->getPassword();
 
-        $sql = "INSERT INTO users (id,username,email,password) VALUES
-        ('$id','$userName','$email','$password')";
+        $sql = "INSERT INTO users (id,username,email,password,role) VALUES
+        ('$id','$userName','$email','$password','user')";
         if (mysqli_query($conn, $sql)) {
             // echo 'Query executed succesfuly';
         } else {
@@ -38,7 +38,7 @@ class DBUser
         $sql = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
 
         if ($statement = $conn->query($sql)) {
-            $result = $statement->fetch_row();
+            $result = $statement->fetch_assoc();
             return $result;
         } else {
             return null;
@@ -52,7 +52,7 @@ class DBUser
         $sql = "SELECT * FROM users WHERE email = '$email' or username ='$username'";
 
         if ($statement = $conn->query($sql)) {
-            $result = $statement->fetch_row();
+            $result = $statement->fetch_assoc();
             return $result;
         } else {
             return null;

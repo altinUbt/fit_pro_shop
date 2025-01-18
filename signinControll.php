@@ -28,7 +28,7 @@ class SignInControll
             $username = $_POST['username'];
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $user = new UserEntity($id, $username, $email, $password);
+            $user = new UserEntity($id, $username, $email, $password, 'user');
 
             $userDBHandler = new DBUser();
             $userExist = $userDBHandler->getUserByEmailorUsername($email, $username);

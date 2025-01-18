@@ -9,25 +9,16 @@ if (isset($_SESSION['useremail'])) {
   exit;
 }
 
+if (isset($_SESSION['adminemail'])) {
+  header('Location:dashboard.php');
+  exit;
+}
+
 require_once 'LoginControll.php';
 
 $loginControll = new LoginControll();
 $loginControll->handleLogin();
 $errorMsg = $loginControll->getErrorMessage();
-
-if (isset($_POST['login'])) {
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-
-  // Kontrollo përdoruesin dhe fjalëkalimin (ndoshta nga një bazë të dhënash)
-  if ($username == "admin" && $password == "admin123") {
-      $_SESSION['role'] = 'admin';  // Kjo mund të ruhet nga baza e të dhënave
-  } elseif ($username == "user" && $password == "user123") {
-      $_SESSION['role'] = 'user';
-  }
-  header('Location: dashboard.php');
-  exit();
-}
 
 ?>
 
