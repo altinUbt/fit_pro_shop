@@ -24,13 +24,17 @@ class LoginControll
             }
             $userDBHandler = new DBUser();
             $user = $userDBHandler->getUserEmailPass($email, $password);
-
             if (empty($user)) {
                 $this->errorMessage = "Email or Password invalid";
             } else {
                 session_start();
-                $_SESSION['useremail'] = $email;
-                header("Location: index.php");
+                if ($user['role'] == "user") {
+                    $_SESSION['useremail'] = $email;
+                    header("Location: index.php");
+                } else {
+                    $_SESSION['adminemail'] = $email;
+                    header("Location: dashboard.php");
+                }
                 exit;
             }
         }
