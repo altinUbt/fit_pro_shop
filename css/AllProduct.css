@@ -1,6 +1,4 @@
 body {
-  /* background-color: #343434; */
-  background-image: url(assets/images/BGProduct.jpg);
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -47,7 +45,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 50px; /*Change to margin*/
+  gap: 50px;
   padding: 20px;
 }
 .product-card {
@@ -122,9 +120,8 @@ button {
 button:hover {
   background-color: #f18930;
 }
-
 .modal {
-  display: none;
+  display: flex;
   position: fixed;
   z-index: 10;
   left: 0;
@@ -132,7 +129,6 @@ button:hover {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -140,12 +136,15 @@ button:hover {
 .modal-content {
   position: relative;
   background-color: #343434;
-  width: 80%;
-  max-width: 600px;
+  width: 70%;
+  max-width: 500px;
+  height: auto;
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   display: grid;
+  gap: 20px;
+  overflow: hidden;
 }
 
 .modal-header {
@@ -154,18 +153,57 @@ button:hover {
   font-size: 18px;
   font-weight: bold;
   color: white;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 10px;
+  border-bottom: 10px;
 }
-
 .modal-body {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
+  width: 100%;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+#modal-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: white;
+  font-family: "Arial", sans-serif;
+  background-color: #080202;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  flex-grow: 1;
+}
+
+#modal-price {
+  font-size: 18px;
+  color: #f18930;
+  font-weight: bold;
+  text-align: center;
+  width: 50%;
+  padding: 8px;
+  background-color: #080202;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  height: auto;
 }
 
 .modal-body img {
-  max-width: 200px;
+  max-width: 180px;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -179,7 +217,7 @@ button:hover {
   background-color: #080202;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Hijet brenda paragrafit */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .modal-footer {
@@ -187,8 +225,8 @@ button:hover {
 }
 
 .buy-button {
-  padding: 10px 30px;
-  font-size: 16px;
+  padding: 8px 20px;
+  font-size: 14px;
   font-weight: bold;
   background-color: #080202;
   color: white;
@@ -219,4 +257,86 @@ button:hover {
 .close:focus {
   color: #000;
   text-decoration: none;
+}
+
+@media (max-width: 860px) {
+  .back-btn {
+    position: absolute;
+    top: 110px;
+    left: 20px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .back {
+    width: auto;
+    height: auto;
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-header {
+    background-color: #080202;
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 16px;
+    width: 90%;
+  }
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+  }
+
+  #modal-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: white;
+    background-color: #080202;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    width: 100%;
+    max-width: 100%;
+    flex-grow: 1;
+  }
+
+  #modal-price {
+    font-size: 16px;
+    color: #f18930;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px;
+    background-color: #080202;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    width: 60%;
+  }
+
+  .modal-body img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
 }
