@@ -1,5 +1,15 @@
+<?php
+if (session_start() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['adminemail'])) {
+    header("Location:login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -115,6 +125,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Sidebar -->
@@ -138,7 +149,7 @@
             <div class="actions">
                 <i class="fas fa-bell"></i>
                 <i class="fas fa-user-circle"></i>
-                
+
                 <a href="logout.php">
                     <i class="fas fa-sign-out-alt"></i>
                 </a>
@@ -167,10 +178,11 @@
     </div>
 
 </body>
+
 </html>
 
 <!-- Next code -->
- <?php
+<?php
 // Lidhja me bazën e të dhënave
 include('DbConnection.php');
 
@@ -312,75 +324,76 @@ $result_products = mysqli_query($conn, $query_products);
 <body>
 
     <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>FitProShop</h2>
-        <ul>
-            <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Users</a></li>
-            <li><a href="AllProduct.php"><i class="fas fa-box"></i> Products</a></li>
-            <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
-            <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
-            <li><a href="#"><i class="fas fa-question-circle"></i> Support</a></li>
-        </ul>
-    </div>
+<div class="sidebar">
+    <h2>FitProShop</h2>
+    <ul>
+        <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="#"><i class="fas fa-users"></i> Users</a></li>
+        <li><a href="AllProduct.php"><i class="fas fa-box"></i> Products</a></li>
+        <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
+        <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
+        <li><a href="#"><i class="fas fa-question-circle"></i> Support</a></li>
+    </ul>
+</div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Header -->
-        <div class="header">
-            <h1>Welcome, Admin!</h1>
-            <div class="actions">
-                <i class="fas fa-bell"></i>
-                <i class="fas fa-user-circle"></i>
-                <a href="logout.php">
-                    <i class="fas fa-sign-out-alt"></i>
-                </a>
-            </div>
+<!-- Main Content -->
+<div class="main-content">
+    <!-- Header -->
+    <div class="header">
+        <h1>Welcome, Admin!</h1>
+        <div class="actions">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+            <a href="logout.php">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
         </div>
-
-        <!-- Tabela për Përdoruesit -->
-        <h2>Users</h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-            </tr>
-            <?php
-            while ($user = mysqli_fetch_assoc($result_users)) {
-                echo "<tr>";
-                echo "<td>" . $user['id'] . "</td>";
-                echo "<td>" . $user['name'] . "</td>";
-                echo "<td>" . $user['email'] . "</td>";
-                echo "<td>" . $user['role'] . "</td>";
-                echo "</tr>";
-            }
-            ?>
-        </table>
-
-        <!-- Tabela për Produktet -->
-        <h2>Products</h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Stock</th>
-            </tr>
-            <?php
-            while ($product = mysqli_fetch_assoc($result_products)) {
-                echo "<tr>";
-                echo "<td>" . $product['id'] . "</td>";
-                echo "<td>" . $product['name'] . "</td>";
-                echo "<td>$" . $product['price'] . "</td>";
-                echo "<td>" . $product['stock'] . "</td>";
-                echo "</tr>";
-            }
-            ?>
-        </table>
-
     </div>
+
+    <!-- Tabela për Përdoruesit -->
+    <h2>Users</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+        <?php
+        while ($user = mysqli_fetch_assoc($result_users)) {
+            echo "<tr>";
+            echo "<td>" . $user['id'] . "</td>";
+            echo "<td>" . $user['name'] . "</td>";
+            echo "<td>" . $user['email'] . "</td>";
+            echo "<td>" . $user['role'] . "</td>";
+            echo "</tr>";
+        }
+        ?>
+    </table>
+
+    <!-- Tabela për Produktet -->
+    <h2>Products</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </tr>
+        <?php
+        while ($product = mysqli_fetch_assoc($result_products)) {
+            echo "<tr>";
+            echo "<td>" . $product['id'] . "</td>";
+            echo "<td>" . $product['name'] . "</td>";
+            echo "<td>$" . $product['price'] . "</td>";
+            echo "<td>" . $product['stock'] . "</td>";
+            echo "</tr>";
+        }
+        ?>
+    </table>
+
+</div>
 
 </body>
+
 </html> -->
