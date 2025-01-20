@@ -13,8 +13,9 @@
     align-items: center;
     flex-direction: column;
     background-size: cover;
-    background-color: #00bcd4;
+    background-color: #8e9596;
 }
+
 .contact .content{
     max-width: 800px;
     text-align: center;
