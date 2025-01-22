@@ -15,120 +15,10 @@ if (!isset($_SESSION['adminemail'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitProShop - Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 250px;
-            height: 100vh;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            position: fixed;
-            top: 0;
-            left: 0;
-            padding: 20px 10px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 22px;
-            text-transform: uppercase;
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            margin: 15px 0;
-        }
-
-        .sidebar ul li a {
-            color: #ecf0f1;
-            text-decoration: none;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .sidebar ul li a:hover {
-            background-color: #34495e;
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-left: 250px;
-            padding: 20px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-
-        .header .actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .header .actions i {
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .card h3 {
-            margin: 10px 0;
-            font-size: 18px;
-        }
-
-        .card p {
-            font-size: 14px;
-            color: #7f8c8d;
-        }
-    </style>
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
 <body>
-
-    <!-- Sidebar -->
     <div class="sidebar">
         <h2>FitProShop</h2>
         <ul>
@@ -319,17 +209,16 @@ $result_products = mysqli_query($conn, $query_products);
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-    </style>
+    </styl>
 </head>
 <body>
-
-    <!-- Sidebar -->
+    -->
 <div class="sidebar">
     <h2>FitProShop</h2>
     <ul>
         <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
         <li><a href="#"><i class="fas fa-users"></i> Users</a></li>
-        <li><a href="AllProduct.php"><i class="fas fa-box"></i> Products</a></li>
+        <li><a href="adminProducts.php"><i class="fas fa-box"></i> Products</a></li>
         <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
         <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
         <li><a href="#"><i class="fas fa-question-circle"></i> Support</a></li>
@@ -396,4 +285,4 @@ $result_products = mysqli_query($conn, $query_products);
 
 </body>
 
-</html> -->
+</html>
