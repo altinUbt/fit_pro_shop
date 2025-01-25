@@ -217,7 +217,7 @@ $result_products = mysqli_query($conn, $query_products);
     <h2>FitProShop</h2>
     <ul>
         <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
-        <li><a href="#"><i class="fas fa-users"></i> Users</a></li>
+        <li><a href="adminUsers.php"><i class="fas fa-users"></i> Users</a></li>
         <li><a href="adminProducts.php"><i class="fas fa-box"></i> Products</a></li>
         <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
         <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
