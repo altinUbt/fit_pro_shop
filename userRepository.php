@@ -12,6 +12,7 @@ class UserRepository
     }
 
     public function getAllUsers()
+    
     {
         $users = [];
         $query = "SELECT * FROM users";

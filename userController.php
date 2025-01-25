@@ -16,6 +16,7 @@ class UserController
         $this->successMessage = "";
     }
 
+    
     public function loadUsers()
     {
         $userDBHandler = new DBUser();
