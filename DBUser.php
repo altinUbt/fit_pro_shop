@@ -30,6 +30,42 @@ class DBUser
 
 
     }
+    function getAllUsers()
+    {
+        $conn = $this->connection->startConn();
+
+        $sql = "SELECT * FROM users";
+
+        $users = [];
+
+        if ($result = $conn->query($sql)) {
+            while ($row = $result->fetch_assoc()) {
+                $users[] = new UserEntity(
+                    $row['id'],
+                    $row['username'],
+                    $row['email'],
+                    $row['password'],
+                    $row['role']
+                );
+            }
+        } else {
+            return null;
+        }
+        return $users;
+    }
+    function getUserById($id)
+    {
+        $conn = $this->connection->startConn();
+
+        $sql = "SELECT * FROM users WHERE id = '$id'";
+
+        if ($statement = $conn->query($sql)) {
+            $result = $statement->fetch_row();
+            return $result;
+        } else {
+            return null;
+        }
+    }
 
     function getUserEmailPass($email, $password)
     {

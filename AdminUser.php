@@ -1,11 +1,20 @@
 <?php
+include_once('UserController.php');
+
+
 if (session_start() === PHP_SESSION_NONE) {
     session_start();
 }
 if (!isset($_SESSION['adminemail'])) {
-    header("Location:login.php");
+    header("Location:adminLogin.php");
     exit;
 }
+$UserController = new UserController();
+
+$users = $UserController->getAllUsers();
+
+$errMessage = $UserController->getErrorMessage();
+$successMessage = $UserController->getSuccessMessage();
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +35,7 @@ if (!isset($_SESSION['adminemail'])) {
         <h2>FitProShop</h2>
         <ul>
             <li><a href="dashboard.php"><i class="fas fa-home"></i> Dashboard</a></li>
-            <li><a href="adminUsers.php"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="AdminUser.php"><i class="fas fa-users"></i>Users</a></li>
             <li><a href="AllProduct.php"><i class="fas fa-box"></i> Products</a></li>
             <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
             <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
@@ -40,9 +49,6 @@ if (!isset($_SESSION['adminemail'])) {
         <div class="header">
             <h1>Users</h1>
             <div class="actions">
-                <button class="edit-btn" title="Edit User">
-                    <i class="fas fa-pencil-alt"></i>
-                </button>
                 <i class="fas fa-bell"></i>
                 <i class="fas fa-user-circle"></i>
 
@@ -53,7 +59,7 @@ if (!isset($_SESSION['adminemail'])) {
         </div>
 
         <div class="add-user-container">
-             <form action="addUser.php" method="POST"> 
+            <form action="addUser.php" method="POST">
                 <input type="text" name="id" placeholder="ID" required>
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="email" name="email" placeholder="Email" required>
@@ -68,12 +74,20 @@ if (!isset($_SESSION['adminemail'])) {
                 <th>Email</th>
                 <th>Role</th>
             </tr>
-            <!-- <?php foreach ($users as $user): ?> -->
+            <?php foreach ($users as $user): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($user['id']) ?></td>
-                    <td><?= htmlspecialchars($user->getName()) ?></td>
-                    <td><?= htmlspecialchars($user->getEmail()) ?></td>
-                    <td><?= htmlspecialchars($user->getRole()) ?></td>
+                    <td>
+                        <?php echo htmlspecialchars($user->getId()) ?>
+                    </td>
+                    <td>
+                        <?php echo htmlspecialchars($user->getUsername()) ?>
+                    </td>
+                    <td>
+                        <?php echo htmlspecialchars($user->getEmail()) ?>
+                    </td>
+                    <td>
+                        <?php echo htmlspecialchars($user->getRole()) ?>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </table>

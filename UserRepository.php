@@ -6,9 +6,10 @@ class UserRepository
 {
     private $connection;
 
-    public function __construct($dbConnection)
+    public function __construct()
     {
-        $this->connection = $dbConnection;
+        $conn = new DBConnection;
+        $this->connection = $conn->startConn();
     }
 
     public function getAllUsers()
@@ -20,7 +21,7 @@ class UserRepository
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $users[] = new UserEntity($row['id'], $row['username'], $row['email']);
+                $users[] = new UserEntity($row['id'], $row['username'], $row['email'], $row['password'], $row['role']);
             }
         }
 
@@ -37,7 +38,7 @@ class UserRepository
 
         if ($result->num_rows === 1) {
             $row = $result->fetch_assoc();
-            return new UserEntity($row['id'], $row['username'], $row['email']);
+            return new UserEntity($row['id'], $row['username'], $row['email'], $row['password'], $row['role']);
         }
 
         return null;
@@ -68,4 +69,4 @@ class UserRepository
     }
 }
 
-?>	
+?>

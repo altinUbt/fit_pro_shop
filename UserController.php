@@ -1,7 +1,7 @@
 <?php
 
 include_once 'DBUser.php';
-include_once 'UserEntity.php';
+include_once 'UserRepository.php';
 
 class UserController
 {
@@ -16,7 +16,12 @@ class UserController
         $this->successMessage = "";
     }
 
-    
+    public function getAllUsers()
+    {
+        $repo = new UserRepository();
+        return $repo->getAllUsers();
+    }
+
     public function loadUsers()
     {
         $userDBHandler = new DBUser();
