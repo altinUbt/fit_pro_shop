@@ -1,16 +1,42 @@
 <?php
 include_once 'AllProductRepository.php';
+include_once 'DBProduct.php';
 
 class ProductController
 {
+    private $products = [];
     private $errorMessage;
     private $succedMessage;
 
     public function __construct()
     {
+        $this->products = [];
         $this->errorMessage = "";
         $this->succedMessage = "";
     }
+
+    public function loadPurchase()
+    {
+        $productDBHandler = new DBProduct();
+        $this->products = $productDBHandler->getAllProducts();
+    }
+    public function handlePurchase()
+    {
+        if (isset($_POST['butNowBtn'])) {
+            $productId = $_POST['productId'];
+
+            $productDBHandler = new DBProduct();
+            $product = $productDBHandler->getProductById($productId);
+
+            if ($product) {
+                $this->succedMessage = "Product purchased successfuly";
+            } else {
+                $this->errorMessage = "Product not found";
+            }
+        }
+    }
+
+
     public function getAllProds()
     {
         $repo = new AllProductRepository();
@@ -116,6 +142,10 @@ class ProductController
         } else {
             $this->errorMessage = "Failed to update the product.";
         }
+    }
+    public function getProducts()
+    {
+        return $this->products;
     }
 
     public function getErrorMessage()
