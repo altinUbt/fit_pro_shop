@@ -4,15 +4,15 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
-include_once 'AllProductControll.php';
+include_once 'productController.php';
 
-$controller = new ProductControll();
+$controller = new ProductController();
 $controller->loadPurchase();
 $controller->handlePurchase();
 
 $products = $controller->getProducts();
 $errorMsg = $controller->getErrorMessage();
-$succedMsg = $controller->getSuccessMessage();
+$succedMsg = $controller->getSuccedMessage();
 
 ?>
 
