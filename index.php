@@ -20,10 +20,10 @@ if (!isset($_SESSION['useremail'])) {
 </head>
 <div class="navbar">
     <h1>FitProShop</h1>
-    <a href="#">HOME</a>
+    <a href="">HOME</a>
     <a href="AboutUs.html">ABOUT US</a>
     <a href="AllProduct.php">PRODUCT</a>
-    <a href="news.html">NEWS</a>
+    <a href="News.php">NEWS</a>
     <a href="contact.html">CONTACT</a>
     <a href="logout.php">LOGOUT</a>
 </div>
