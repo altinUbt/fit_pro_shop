@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['adminemail'])) {
-    header('Location: adminLogin.php');
+    header('Location: login.php');
     exit;
 }
 
@@ -48,7 +48,7 @@ $successMessage = $productController->getSuccedMessage();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="css/editProduct.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
 <body>
@@ -56,9 +56,9 @@ $successMessage = $productController->getSuccedMessage();
         <h2>FitProShop</h2>
         <ul>
             <li><a href="dashboard.php"><i class="fas fa-home"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="AdminUser.php"><i class="fas fa-users"></i> Users</a></li>
             <li><a href="adminProducts.php"><i class="fas fa-box"></i> Products</a></li>
-            <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li><a href="adminNews.php"><i class="fas fa-chart-line"></i> News</a></li>
             <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
             <li><a href="#"><i class="fas fa-question-circle"></i> Support</a></li>
         </ul>

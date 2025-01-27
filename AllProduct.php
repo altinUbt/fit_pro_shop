@@ -1,7 +1,11 @@
 <?php
 
-if (session_status() === PHP_SESSION_NONE) {
+if (session_start() === PHP_SESSION_NONE) {
   session_start();
+}
+if (!isset($_SESSION['useremail'])) {
+  header("Location:login.php");
+  exit;
 }
 
 include_once 'productController.php';

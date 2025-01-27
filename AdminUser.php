@@ -6,7 +6,7 @@ if (session_start() === PHP_SESSION_NONE) {
     session_start();
 }
 if (!isset($_SESSION['adminemail'])) {
-    header("Location:adminLogin.php");
+    header("Location:login.php");
     exit;
 }
 $UserController = new UserController();
@@ -35,9 +35,8 @@ $successMessage = $UserController->getSuccessMessage();
         <h2>FitProShop</h2>
         <ul>
             <li><a href="dashboard.php"><i class="fas fa-home"></i> Dashboard</a></li>
-            <li><a href="AdminUser.php"><i class="fas fa-users"></i>Users</a></li>
-            <li><a href="AllProduct.php"><i class="fas fa-box"></i> Products</a></li>
-            <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li><a href="adminProducts.php"><i class="fas fa-box"></i> Products</a></li>
+            <li><a href="adminNews.php"><i class="fas fa-chart-line"></i> News</a></li>
             <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
             <li><a href="#"><i class="fas fa-question-circle"></i> Support</a></li>
         </ul>
@@ -56,15 +55,6 @@ $successMessage = $UserController->getSuccessMessage();
                     <i class="fas fa-sign-out-alt"></i>
                 </a>
             </div>
-        </div>
-
-        <div class="add-user-container">
-            <form action="addUser.php" method="POST">
-                <input type="text" name="id" placeholder="ID" required>
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input class="submit" type="submit" value="Add User">
-            </form>
         </div>
 
         <table>

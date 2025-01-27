@@ -1,6 +1,7 @@
 <?php
 
 include_once 'DbConnection.php';
+include_once 'AllProductEntity.php';
 
 class DBProduct
 {
