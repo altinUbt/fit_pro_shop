@@ -270,6 +270,7 @@ h3 {
   display: flexbox;
   text-align: center;
   padding: 5px;
+  list-style: none;
 }
 .social-icons i {
   color: white;
@@ -277,6 +278,7 @@ h3 {
   font-size: 16px;
   padding: 7px;
   display: inline;
+  list-style: none;
 }
 a {
   text-decoration: none;
