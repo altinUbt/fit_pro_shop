@@ -60,9 +60,9 @@ if (!isset($_SESSION['useremail'])) {
                 <h3>Quick Links</h3>
                 <ul class="list">
                     <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Products</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="AboutUs.html">About</a></li>
+                    <li><a href="AllProduct.php">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-content">
