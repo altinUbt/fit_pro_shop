@@ -44,26 +44,22 @@ $succedMsg = $controller->getSuccedMessage();
             <div style="color: green;">
                 <?= htmlspecialchars($succedMsg ? $succedMsg : '') ?>
             </div>
+
             <div class="cards">
-                <div class="card">
-                    <?php foreach ($news as $new): ?>
-                        <div class="image-section">
-                            <img src="<?= htmlspecialchars($new['image']) ?>" alt="">
-                        </div>
-                        <div class="content">
-                            <h4><b>
-                                    <?= htmlspecialchars($new['name']) ?>
-                                </b></h4>
-                            <p>
-                                <?= htmlspecialchars($new['description']) ?>
-                            </p>
-
-                            <a href="">Read More</a>
-                        </div>
-                    <?php endforeach; ?>
-
-                </div>
+                 <?php foreach ($news as $new): ?>
+                 <div class="card"> 
+                <div class="image-section">
+                <img src="<?= htmlspecialchars($new['image']) ?>" alt="">
             </div>
+            <div class="content">
+                <h4><b><?= htmlspecialchars($new['name']) ?></b></h4>
+                <p><?= htmlspecialchars($new['description']) ?></p>
+                <a href="">Read More</a>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
         </div>
     </div>
 </body>
