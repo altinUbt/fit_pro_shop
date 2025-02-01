@@ -47,7 +47,7 @@ $successMessage = $newsController->getSuccedMessage();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/adminProducts.css">
 </head>
 
 <body>
@@ -102,7 +102,7 @@ $successMessage = $newsController->getSuccedMessage();
                     <textarea id="description" name="description"
                         required><?php echo htmlspecialchars($news['description']); ?></textarea>
 
-                    
+
 
                     <label>Current Image:</label>
                     <img src="<?php echo htmlspecialchars($news['image']); ?>" alt="Current Image"
