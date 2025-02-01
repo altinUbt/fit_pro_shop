@@ -22,7 +22,7 @@ body {
   justify-content: space-between;
   background-color: #343434;
   color: white;
-  height: 75px;
+  /* height: 75px; */
   padding: 10px 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -191,12 +191,13 @@ body {
   background: #555;
 }
 
-footer,
+/* footer,
 .navbar {
   margin-top: auto;
   width: 100%;
   background-size: cover;
 }
+*/
 
 footer {
   background-color: #343434;
@@ -326,7 +327,7 @@ p {
     font-size: 20px;
   }
   .gallery {
-    width: 50%;
+    width: 40%;
     height: auto;
     margin-left: 25%;
   }
@@ -383,7 +384,6 @@ p {
   .gallery-item {
     width: 90%;
   }
-
   .footer-content h3 {
     font-size: 18px;
   }

@@ -76,7 +76,6 @@ body {
 .header .actions {
   display: flex;
   align-items: center;
-  gap: 15px;
 }
 
 .header .actions i {
@@ -84,29 +83,108 @@ body {
   cursor: pointer;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+table {
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #ddd;
 }
 
-.card {
-  background-color: #ffffff;
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  color: #333;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+td {
+  color: #555;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.add-product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 15px;
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  width: 400px;
+  margin: 0 auto;
 }
 
-.card h3 {
-  margin: 10px 0;
-  font-size: 18px;
+.add-product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  gap: 15px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 500px;
 }
 
-.card p {
+.add-product-container label {
+  width: 100%;
   font-size: 14px;
-  color: #7f8c8d;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.add-product-container input,
+.add-product-container textarea,
+.add-product-container .submit {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.add-product-container textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.add-product-container .submit {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-product-container .submit:hover {
+  background-color: #34495e;
+}
+
+.add-product-container img {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
@@ -138,16 +216,65 @@ body {
     margin-top: 20px;
   }
   .header {
+    margin-left: 50px;
     width: 90%;
   }
-  .cards {
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    gap: 10px;
+  .add-product-container {
+    width: 90%;
+    padding: 15px;
+    margin-left: 50px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
+@media (max-width: 600px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    box-shadow: none;
+  }
 
+  .sidebar ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar ul li {
+    margin: 0;
+  }
+
+  .sidebar ul li a {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .header {
+    margin-left: 50px;
+    width: 90%;
+  }
+  .add-product-container {
+    width: 90%;
+    padding: 15px;
+    margin-left: 50px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
 @media (max-width: 576px) {
   .sidebar {
     width: 100%;
@@ -173,19 +300,25 @@ body {
   }
 
   .header {
+    margin-left: 0px;
     width: 90%;
   }
-  .cards {
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    gap: 10px;
+  .add-product-container {
+    width: 90%;
+    padding: 15px;
+    margin-left: 10px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
-
 @media (max-width: 440px) {
   .sidebar {
     width: 100%;
+    flex-wrap: wrap;
     height: auto;
     position: relative;
     box-shadow: none;
@@ -208,11 +341,19 @@ body {
   }
 
   .header {
-    width: 90%;
+    margin-left: 0px;
+    width: 95%;
   }
-  .cards {
-    display: flex;
-    justify-content: center;
+  .add-product-container {
+    width: 90%;
+    padding: 15px;
+    margin-left: 10px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
 @media (max-width: 324px) {
@@ -240,11 +381,18 @@ body {
   }
 
   .header {
-    width: 95%;
+    margin-left: 0px;
+    width: 90%;
   }
-  .header .actions {
-    display: flex;
-    align-items: center;
-    gap: 3px;
+  .add-product-container {
+    width: 90%;
+    padding: 15px;
+    margin-left: 10px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
